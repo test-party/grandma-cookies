@@ -42,60 +42,61 @@
         const cc = CookieConsent;
 
         cc.run({
-            guiOptions: {
-                consentModal: { layout: 'cloud', position: 'bottom center' },
-                preferencesModal: { layout: 'list' }
-            },
-            categories: {
-                necessary: { enabled: true, readOnly: true },
-                analytics: { enabled: false,
-                    autoClear: {
-            cookies: [
-                { name: /^clerk_/ }, // Deleta qualquer cookie que comece com clerk_
-                { name: '_ga' },     // Exemplo para Google Analytics
-                { name: '_gid' }
-            ]
+    guiOptions: {
+        consentModal: { layout: 'cloud', position: 'bottom center' },
+        preferencesModal: { layout: 'list' }
+    },
+    // NOVIDADE: Configuração de limpeza
+    categories: {
+        necessary: { 
+            enabled: true, 
+            readOnly: true 
+        },
+        analytics: { 
+            enabled: false,
+            autoClear: {
+                cookies: [
+                    { name: 'clerk_db_jwt' }, // Nome exato do cookie
+                    { name: /^clerk_/ },      // Ou via Regex para pegar todos do Clerk
+                    { name: /^(_ga|_gid)/ }   // Cookies do Google Analytics
+                ]
+            }
         }
-                 }
-            },
-            language: {
-                default: 'en',
-                translations: {
-                    en: {
-                        consentModal: {
-                            title: 'We use cookies',
-                            description: 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
-                            acceptAllBtn: 'Accept All',
-                            acceptNecessaryBtn: 'Reject All',
-                            showPreferencesBtn: 'Manage Preferences'
+    },
+    language: {
+        default: 'en',
+        translations: {
+            en: {
+                consentModal: {
+                    title: 'We use cookies',
+                    description: 'By clicking "Accept All", you consent to our use of cookies. If you reject, some features like login may be affected.',
+                    acceptAllBtn: 'Accept All',
+                    acceptNecessaryBtn: 'Reject All',
+                    showPreferencesBtn: 'Manage'
+                },
+                preferencesModal: {
+                    title: 'Cookie Preferences',
+                    acceptAllBtn: 'Accept All',
+                    acceptNecessaryBtn: 'Reject All',
+                    savePreferencesBtn: 'Save Settings',
+                    closeIconLabel: 'Close',
+                    sections: [
+                        {
+                            title: 'Strictly Necessary Cookies',
+                            description: 'These cookies are essential for the website to function (like your login session).',
+                            linkedCategory: 'necessary'
                         },
-                        preferencesModal: {
-                            title: 'Cookie Preferences',
-                            acceptAllBtn: 'Accept All',
-                            acceptNecessaryBtn: 'Reject All',
-                            savePreferencesBtn: 'Save Settings',
-                            closeIconLabel: 'Close',
-                            sections: [
-                                {
-                                    title: 'Cookie Usage',
-                                    description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience.'
-                                },
-                                {
-                                    title: 'Strictly Necessary Cookies',
-                                    description: 'These cookies are essential for the proper functioning of the website.',
-                                    linkedCategory: 'necessary'
-                                },
-                                {
-                                    title: 'Performance and Analytics Cookies',
-                                    description: 'These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.',
-                                    linkedCategory: 'analytics'
-                                }
-                            ]
+                        {
+                            title: 'Analytics Cookies',
+                            description: 'These help us understand how you use the site.',
+                            linkedCategory: 'analytics'
                         }
-                    }
+                    ]
                 }
             }
-        });
+        }
+    }
+});
 
         // 3. Create the Floating Cookie Button
         const btn = document.createElement('div');
