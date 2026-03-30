@@ -54,7 +54,7 @@
                                     linkedCategory: 'necessary'
                                 },
                                 {
-                                    title: 'Analytics Cookies',
+                                    title: 'Analytics Coonkies',
                                     description: 'Help us understand how you use the site.',
                                     linkedCategory: 'analytics'
                                 }
