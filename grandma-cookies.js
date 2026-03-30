@@ -48,7 +48,15 @@
             },
             categories: {
                 necessary: { enabled: true, readOnly: true },
-                analytics: { enabled: false }
+                analytics: { enabled: false,
+                    autoClear: {
+            cookies: [
+                { name: /^clerk_/ }, // Deleta qualquer cookie que comece com clerk_
+                { name: '_ga' },     // Exemplo para Google Analytics
+                { name: '_gid' }
+            ]
+        }
+                 }
             },
             language: {
                 default: 'en',
