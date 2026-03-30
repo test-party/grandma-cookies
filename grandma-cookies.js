@@ -56,10 +56,9 @@
             enabled: false,
             autoClear: {
                 cookies: [
-                    { name: 'clerk_db_jwt' }, // Nome exato do cookie
-                    { name: /^clerk_/ },      // Ou via Regex para pegar todos do Clerk
-                    { name: /^(_ga|_gid)/ }   // Cookies do Google Analytics
-                ]
+                { name: /^(_ga|_gid|_clck|_clsk|CLID)/ }, // Regex para pegar Google e Clarity
+                { name: 'AnalyticsSyncHistory' }
+            ]
             }
         }
     },
