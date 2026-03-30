@@ -37,10 +37,28 @@
                 translations: {
                     en: {
                         consentModal: {
-                            title: 'Cookies!',
-                            description: 'We use tracking cookies.',
-                            acceptAllBtn: 'Accept All',
-                            acceptNecessaryBtn: 'Reject Allxxxx'
+                            title: '🍪🍪🍪 GRANDMA COOKIES v999 🍪🍪🍪',
+                            description: 'AAAAA WE USE COOKIES BOOMER',
+                            acceptAllBtn: '✅ YESYESYES',
+                            acceptNecessaryBtn: '❌ NOOOOO'
+                        },
+                        preferencesModal: {
+                            title: '⚙️ SETTINGS BABE',
+                            acceptAllBtn: '✅ ALL IN BABY',
+                            acceptNecessaryBtn: '❌ GET OUT',
+                            savePreferencesBtn: '💾 SAVE ME',
+                            sections: [
+                                {
+                                    title: 'Necessary Cookies',
+                                    description: 'Required for the site to work.',
+                                    linkedCategory: 'necessary'
+                                },
+                                {
+                                    title: 'Analytics Cookies',
+                                    description: 'Help us understand how you use the site.',
+                                    linkedCategory: 'analytics'
+                                }
+                            ]
                         }
                     }
                 }
