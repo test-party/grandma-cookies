@@ -32,7 +32,7 @@
                             title: 'Cookies!',
                             description: 'We use tracking cookies.',
                             acceptAllBtn: 'Accept All',
-                            acceptNecessaryBtn: 'Reject All'
+                            acceptNecessaryBtn: 'Reject Allx'
                         }
                     }
                 }
