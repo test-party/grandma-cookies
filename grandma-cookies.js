@@ -11,6 +11,14 @@
     script.src = 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
     script.onload = () => {
         CookieConsent.run({
+            guiOptions: {
+                consentModal: {
+                    layout: 'box',
+                    position: 'bottom center',
+                    equalWeightButtons: true,
+                    flipButtons: false
+                }
+            },
             categories: {
                 necessary: { enabled: true, readOnly: true },
                 analytics: { 
@@ -32,7 +40,7 @@
                             title: 'Cookies!',
                             description: 'We use tracking cookies.',
                             acceptAllBtn: 'Accept All',
-                            acceptNecessaryBtn: 'Reject Allx'
+                            acceptNecessaryBtn: 'Reject Allxxxx'
                         }
                     }
                 }
